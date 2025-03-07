@@ -23,3 +23,16 @@ double integrate_trapezoidal() {
     }
     return sum;
 }
+int main() {
+    clock_t start = clock();
+    double result = integrate_trapezoidal();
+    clock_t end = clock();
+
+    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+
+    printf("Sequential Integral: %lf\n", result);
+    printf("Execution Time: %f seconds\n", time_taken);
+
+    return 0;
+}
+
