@@ -24,6 +24,15 @@ double integrate_trapezoidal_parallel(int num_threads, int schedule_type) {
             double x2 = A + (i + 1) * dx;
             sum += (f(x1) + f(x2)) / 2.0 * dx;
         }
+          // Run Dynamic Scheduling if selected
+          if (schedule_type == 2) {
+            #pragma omp for schedule(dynamic) reduction(+:sum)
+            for (int i = 0; i < N; i++) {
+                double x1 = A + i * dx;
+                double x2 = A + (i + 1) * dx;
+                sum += (f(x1) + f(x2)) / 2.0 * dx;
+            }
+        }
     }
 
     return sum;
