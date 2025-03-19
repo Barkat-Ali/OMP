@@ -10,9 +10,9 @@ This project implements **Numerical Integration** using **OpenMP** for paralleli
 Compile and run:
 
 # Sequential version
-gcc -o integrate_seq integrate_seq.c -lm
-./integrate_seq
+gcc -o sq_integration sq_integration.c -lm
+./sq_integration
 
 # Parallel version
-gcc -fopenmp -o integrate_parallel integrate_parallel.c -lm
-./integrate_parallel
+gcc -fopenmp -o parallel_integration parallel_integration.c -lm
+./parallel_integration
